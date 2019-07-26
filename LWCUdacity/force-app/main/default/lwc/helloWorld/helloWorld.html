@@ -1,13 +1,27 @@
 <template>
     <lightning-card title="Hello World LWC" class="titlecard">
+
         <div class="divtag">Hello {dynamicGreeting}</div>
 
-        <lightning-input type="checkbox" label="Change Greeting" onchange={showDivHandler}></lightning-input>
-        <template if:true={displayDiv}>
+        <template if:false={displayDiv}>
+                <div>Standard Greeting for you</div>
+            </template>
 
+        <lightning-input type="checkbox" label="Change Greeting" onchange={showDivHandler}></lightning-input>
+
+        <template if:true={displayDiv}>
             <lightning-input label="Greeting" onchange={greetingChangeHandler}></lightning-input>
         </template>
 
+        <p>For each iterator</p>
+        <template for:each={cityList} for:item="city">
+            <p key={city}>{city}</p>
+        </template>
+
+        <p>Iterator directive</p>
+        <template iterator:it={cityList}>
+            <p key={it.value}>{it.value}</p>
+        </template>
 
     </lightning-card>
 
