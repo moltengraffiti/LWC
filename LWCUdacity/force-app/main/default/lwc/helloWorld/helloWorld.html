@@ -1,6 +1,7 @@
 <template>
     <lightning-card title="Hello World LWC">
-        <div class="divtag">Hello World</div>
+        <div class="divtag">Hello {dynamicGreeting}</div>
+        <lightning-input label="Greeting" onchange={greetingChangeHandler}></lightning-input>
 
     </lightning-card>
 
